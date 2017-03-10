@@ -1,0 +1,15 @@
+version: '3'
+services:
+  maven:
+    container_name: 'maven'
+    image: 1000kit/maven
+    environment:
+      - MAVEN_ALL_REPRO_ID=ALL_REPRO_ID
+      - MAVEN_RELEASE_REPRO_ID=REL_PROD_ID
+      - MAVEN_SNAPSHOT_REPRO_ID=REL_SNAP_ID
+      - MAVEN_DEPLOYER_USER=deployer
+      - MAVEN_DEPLOYER_PWD=password
+      - MAVEN_ALL_REPRO_URL=https://artefactserver.org
+      
+      
+#END

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <localRepository>/usr/share/maven/ref/repository</localRepository>
+
+    <servers>
+        <server>
+            <id>${MAVEN_ALL_REPRO_ID}</id>
+            <username>${MAVEN_DEPLOYER_USER}</username>
+            <password>${MAVEN_DEPLOYER_PWD}</password>
+        </server>
+        <server>
+            <id>${MAVEN_RELEASE_REPRO_ID}</id>
+            <username>${MAVEN_DEPLOYER_USER}</username>
+            <password>${MAVEN_DEPLOYER_PWD}</password>
+        </server>
+        <server>
+            <id>${MAVEN_SNAPSHOT_REPRO_ID}</id>
+            <username>${MAVEN_DEPLOYER_USER}</username>
+            <password>${MAVEN_DEPLOYER_PWD}</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>all_read</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>${MAVEN_ALL_REPRO_ID}</id>
+                    <url>${MAVEN_ALL_REPRO_URL}/</url>
+                    <layout>default</layout>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <id>jboss-enterprise-maven-repository</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>jboss-enterprise-maven-repository</id>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>jboss-enterprise-maven-repository</id>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+</settings>
